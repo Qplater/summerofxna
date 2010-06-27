@@ -1,0 +1,14 @@
+#Segédlet a Tortoise SVN használatához.
+
+= Tortoise SVN röviden =
+
+A Tortoise SVN egy kliens program szerverek és repository-k eléréséhez. A repository fogalom egy helyet jelöl, ahol egy adott szoftvert tárolunk.
+
+
+= Beszerzés és telepítés =
+
+A programot a következő oldalról tölthetitek le: http://tortoisesvn.net/downloads. Válasszátok ki a gépeteknek megfelel verziót, töltsétek le és telepítsétek. Ezzel az alkalmazás beépült a környezeti menübe.
+
+= Csatlakozás a repository-hoz és kliens oldali forráskönyvtár létrehozás =
+
+Mielőtt csatlakoznál a szerverhez hozz létre egy könyvtárat valahol a merevlemezeden, ahol a továbbiakban tárolni szeretnéd a szerverről letöltött forrást. A könyvtár neve teljesen mindegy. Ha ez meg van kattints rajta a jobb egér gombbal és válaszd ki a menüből az "SVN Checkout" opciót. Ekkor kapsz egy 
