@@ -1,4 +1,6 @@
 #labels TortoiseSVN,svn
+_--Out of Date (lásd az SVN beszélgetést a groups oldalon)--_
+
 #Segédlet a Tortoise SVN használatához.
 
 = Tortoise SVN röviden =
