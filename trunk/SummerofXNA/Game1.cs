@@ -61,11 +61,7 @@ namespace SummerofXNA
         //Draw
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-            
-            spriteBatch.Begin();
-
-            spriteBatch.End();
+            GraphicsDevice.Clear(Color.CornflowerBlue);            
 
             base.Draw(gameTime);
         }
