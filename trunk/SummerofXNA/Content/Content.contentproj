@@ -38,10 +38,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Images\Character\Playable\stand.png">
+      <Name>stand</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Character\Playable\run.png">
+      <Name>run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Background\ground.png">
+      <Name>ground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Background\backgroundUnit.png">
+      <Name>backgroundUnit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="Images\Background\" />
     <Folder Include="Images\Character\NPC\" />
-    <Folder Include="Images\Character\Playable\" />
     <Folder Include="Images\World\Misc\" />
     <Folder Include="Sound\" />
   </ItemGroup>
