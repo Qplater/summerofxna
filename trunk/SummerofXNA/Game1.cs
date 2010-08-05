@@ -20,6 +20,24 @@ namespace SummerofXNA
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Vector2 clientBounds;
+
+        Vector2 uICoord;
+
+        Texture2D backgroundTexture;
+        Texture2D uIBackgroundTexture;
+
+        public Managers.PlayerManager playerManager;
+
+        public Vector2 ClientBounds
+        {
+            get { return clientBounds; }
+        }
+
+        public Vector2 UICoord
+        {
+            get { return uICoord; }
+        }
 
         #endregion
 
@@ -27,23 +45,38 @@ namespace SummerofXNA
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            Content.RootDirectory = "Content";            
         }
 
         //Initialize
         protected override void Initialize()
         {
+
+            clientBounds = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+            uICoord = new Vector2(0, 500);
+           
+            playerManager = new SummerofXNA.Managers.PlayerManager(this);
+
+            Components.Add(playerManager);
+
             base.Initialize();
         }
 
         //LoadCOntent
         protected override void LoadContent()
         {
+
+            backgroundTexture = Content.Load<Texture2D>(@"Images\Background\groundTest");
+            uIBackgroundTexture = Content.Load<Texture2D>(@"Images\Background\ui_bg2");
+            
+            spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
         //UnloadContent
         protected override void UnloadContent()
         {
+            backgroundTexture.Dispose();
+            uIBackgroundTexture.Dispose();
         }
 
         //Update
@@ -62,6 +95,17 @@ namespace SummerofXNA
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);            
+
+            spriteBatch.Begin();
+
+            //Draw the background image
+            spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, Window.ClientBounds.Width,
+                             (int)uICoord.Y), null, Color.White, 0, Vector2.Zero,
+                             SpriteEffects.None, 0);
+
+            spriteBatch.Draw(uIBackgroundTexture, new Rectangle((int)uICoord.X, (int)uICoord.Y, 800, 100), Color.White);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

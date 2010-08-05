@@ -1,0 +1,6 @@
+Content\Images\Character\Playable\stand.xnb
+Content\Images\Character\Playable\run.xnb
+Content\Images\Background\ground.xnb
+Content\Images\Background\backgroundUnit.xnb
+Content\Images\Background\groundTest.xnb
+Content\Images\Background\ui_bg2.xnb

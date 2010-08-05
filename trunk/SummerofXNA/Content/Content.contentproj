@@ -66,6 +66,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Images\Background\groundTest.png">
+      <Name>groundTest</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Background\ui_bg2.png">
+      <Name>ui_bg2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Fonts\" />
     <Folder Include="Images\Character\NPC\" />
     <Folder Include="Images\World\Misc\" />

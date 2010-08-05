@@ -4,3 +4,9 @@ D:\SVN\SummerofXNA\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\SVN\SummerofXNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 D:\SVN\SummerofXNA\obj\x86\Debug\SummerofXNA.exe
 D:\SVN\SummerofXNA\obj\x86\Debug\SummerofXNA.pdb
+D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Character\Playable\stand.xnb
+D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Character\Playable\run.xnb
+D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Background\ground.xnb
+D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Background\backgroundUnit.xnb
+D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Background\groundTest.xnb
+D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Background\ui_bg2.xnb

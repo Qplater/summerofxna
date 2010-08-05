@@ -19,11 +19,6 @@ namespace SummerofXNA.Classes.Base
 
         protected float scale = 1;
 
-        public Vector2 Position
-        {
-            get { return position; }
-        }
-
         #endregion
 
         //Constructors
@@ -45,8 +40,29 @@ namespace SummerofXNA.Classes.Base
             this.millisecondsPerFrame = milliSecondsPerFrame;
         }
 
+        public AnimatedSprite(Texture2D textureImage, Vector2 position, Point frameSize,
+                      int collisionOffset, Point currentFrame, Point sheetSize, int milliSecondsPerFrame,
+                      int scale)
+            : base(textureImage, position, frameSize, collisionOffset)
+        {
+            this.currentFrame = currentFrame;
+            this.sheetSize = sheetSize;
+            this.millisecondsPerFrame = milliSecondsPerFrame;
+            this.scale = scale;
+        }
+
+        public AnimatedSprite(Texture2D textureImage, Vector2 position, Point frameSize,
+                      int collisionOffset, Point currentFrame, Point sheetSize, double scale)
+            : base(textureImage, position, frameSize, collisionOffset)
+        {
+            this.currentFrame = currentFrame;
+            this.sheetSize = sheetSize;
+            this.millisecondsPerFrame = defaultMillisecondsPerFrame;
+            this.scale = (float)scale;
+        }
+
         //Update
-        public virtual void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             //Animate the sprite
             timeSinceLastFrame += gameTime.ElapsedGameTime.Milliseconds;
@@ -62,10 +78,12 @@ namespace SummerofXNA.Classes.Base
                         currentFrame.Y = 0;
                 }
             }
+            
+            base.Update(gameTime);
         }
 
         //Draw
-        public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(textureImage,
                              position,
@@ -79,6 +97,6 @@ namespace SummerofXNA.Classes.Base
                              scale,
                              SpriteEffects.None,
                              0);
-        }
+        }        
     }
 }
