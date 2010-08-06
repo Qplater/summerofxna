@@ -87,6 +87,7 @@
     <Compile Include="Classes\Base\AnimatedSprite.cs" />
     <Compile Include="Classes\Base\Sprite.cs" />
     <Compile Include="Classes\Character\Playable\UserControlledSprite.cs" />
+    <Compile Include="Managers\DeveloperInterfaceManager.cs" />
     <Compile Include="Managers\PlayerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
@@ -141,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes\Character\NPC\" />
+    <Folder Include="Classes\Misc\" />
     <Folder Include="Classes\World\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

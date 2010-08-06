@@ -33,6 +33,12 @@ namespace SummerofXNA.Classes.Base
             this.collisionOffset = collisionOffset;
         }
 
+        //Dispose
+        public virtual void Dispose()
+        {
+            textureImage.Dispose();
+        }
+
         //Update
         public virtual void Update(GameTime gameTime)
         { }

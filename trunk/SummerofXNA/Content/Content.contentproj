@@ -80,7 +80,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Fonts\" />
+    <Compile Include="Fonts\DeveloperInterfaceFont.spritefont">
+      <Name>DeveloperInterfaceFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Images\Character\NPC\" />
     <Folder Include="Images\World\Misc\" />
     <Folder Include="Sound\" />

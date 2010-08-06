@@ -61,6 +61,11 @@ namespace SummerofXNA.Classes.Base
             this.scale = (float)scale;
         }
 
+        public override void Dispose()
+        {
+            base.Dispose();
+        }
+
         //Update
         public override void Update(GameTime gameTime)
         {

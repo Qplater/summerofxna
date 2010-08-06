@@ -28,6 +28,7 @@ namespace SummerofXNA
         Texture2D uIBackgroundTexture;
 
         public Managers.PlayerManager playerManager;
+        public Managers.DeveloperInterfaceManager developerInterfaceManager;
 
         public Vector2 ClientBounds
         {
@@ -56,8 +57,10 @@ namespace SummerofXNA
             uICoord = new Vector2(0, 500);
            
             playerManager = new SummerofXNA.Managers.PlayerManager(this);
+            developerInterfaceManager = new SummerofXNA.Managers.DeveloperInterfaceManager(this);
 
             Components.Add(playerManager);
+            Components.Add(developerInterfaceManager);
 
             base.Initialize();
         }

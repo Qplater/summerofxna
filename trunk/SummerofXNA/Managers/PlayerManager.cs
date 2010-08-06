@@ -24,16 +24,19 @@ namespace SummerofXNA.Managers
 
         #endregion
 
+        //Constructor
         public PlayerManager(Game game)
             : base(game)
         {
         }
 
+        //Initialize
         public override void Initialize()
         {                        
             base.Initialize();
         }
 
+        //LoadContent
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
@@ -45,6 +48,14 @@ namespace SummerofXNA.Managers
             base.LoadContent();
         }
 
+        //Dispose
+        protected override void UnloadContent()
+        {
+            PlayerOne.Dispose();
+            base.UnloadContent();
+        }
+
+        //Update
         public override void Update(GameTime gameTime)
         {
             PlayerOne.Update(gameTime);
@@ -52,6 +63,7 @@ namespace SummerofXNA.Managers
             base.Update(gameTime);
         }
 
+        //Draw
         public override void Draw(GameTime gameTime)
         {
 

@@ -55,6 +55,15 @@
       <Output>D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Background\ui_bg2.xnb</Output>
       <Time>2010-08-05T09:27:14.8428184+02:00</Time>
     </Item>
+    <Item>
+      <Source>Fonts\DeveloperInterfaceFont.spritefont</Source>
+      <Name>Fonts\DeveloperInterfaceFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\SVN\SummerofXNA\bin\x86\Debug\Content\Fonts\DeveloperInterfaceFont.xnb</Output>
+      <Time>2010-08-06T17:33:21.9975514+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

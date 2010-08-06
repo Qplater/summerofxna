@@ -10,3 +10,4 @@ D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Background\ground.xnb
 D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Background\backgroundUnit.xnb
 D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Background\groundTest.xnb
 D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Background\ui_bg2.xnb
+D:\SVN\SummerofXNA\bin\x86\Debug\Content\Fonts\DeveloperInterfaceFont.xnb
