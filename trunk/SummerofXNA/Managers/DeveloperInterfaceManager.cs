@@ -87,23 +87,3 @@ namespace SummerofXNA.Managers
         }
     }
 }
-
-////time since last FPS update in seconds
-//        float deltaFPSTime = 0;
-
-//        protected override void Update()
-//        {
-//            // The time since Update was called last
-//            float elapsed = (float)ElapsedTime.TotalSeconds;
-
-//            float fps = 1 / elapsed;
-//            deltaFPSTime += elapsed;
-//            if (deltaFPSTime>1)
-//            {
-                
-//                Window.Title = "I am running at  <" + fps.ToString()+"> FPS";
-//                deltaFPSTime-=1;
-//            }
-//            // Let the GameComponents update
-//            UpdateComponents();
-//        }
