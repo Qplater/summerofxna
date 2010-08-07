@@ -18,13 +18,21 @@ namespace SummerofXNA.Managers
     {
 
         #region Class-level variables
-
+        
         SpriteBatch spriteBatch;
         SpriteFont developerUIFont;
 
         float fPS;
         float lastFPS;
         float timeSinceLastSecond;
+
+        bool isMouseVisible;
+
+        MouseState prevMouseState;
+        Vector2 mouseCoords;
+
+        KeyboardState prevKeyboardState;
+        KeyboardState currentKeyboardState;
 
         #endregion
 
@@ -35,6 +43,7 @@ namespace SummerofXNA.Managers
             fPS = 0;
             lastFPS = 0;
             timeSinceLastSecond = 0;
+            isMouseVisible = false;
         }
 
         //Initialize
@@ -58,6 +67,23 @@ namespace SummerofXNA.Managers
         public override void Update(GameTime gameTime)
         {
 
+            MouseState currMouseState = Mouse.GetState();
+            if (currMouseState.X != prevMouseState.X ||
+                currMouseState.Y != prevMouseState.Y)
+            {
+                mouseCoords = new Vector2(currMouseState.X, currMouseState.Y);
+            }
+            prevMouseState = currMouseState;
+
+            currentKeyboardState = Keyboard.GetState();
+
+            if (currentKeyboardState.IsKeyDown(Keys.F12) && prevKeyboardState.IsKeyUp(Keys.F12))
+            {
+                ((Game1)Game).IsMouseVisible ^= true;
+                isMouseVisible ^= true;     
+            }
+            prevKeyboardState = currentKeyboardState;
+            
             timeSinceLastSecond += gameTime.ElapsedGameTime.Milliseconds;            
 
             if (timeSinceLastSecond > 1000)
@@ -79,6 +105,14 @@ namespace SummerofXNA.Managers
             
             spriteBatch.DrawString(developerUIFont, "FPS: " + lastFPS,
                                 new Vector2(5, 5),
+                                Color.Blue);
+
+            spriteBatch.DrawString(developerUIFont, "Mouse visibility: " + isMouseVisible + " (F12)",
+                                new Vector2(5, 20),
+                                Color.Blue);
+
+            spriteBatch.DrawString(developerUIFont, "Mouse coords: (x: " + mouseCoords.X + ", y: " + mouseCoords.Y + ")",
+                                new Vector2(5, 35),
                                 Color.Blue);
 
             spriteBatch.End();

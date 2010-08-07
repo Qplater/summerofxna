@@ -18,7 +18,7 @@ namespace SummerofXNA.Managers
     {
         #region Class-level variables
         
-        Classes.Base.AnimatedSprite PlayerOne;
+        //Classes.Base.AnimatedSprite PlayerOne;
 
         SpriteBatch spriteBatch;
 
@@ -41,9 +41,9 @@ namespace SummerofXNA.Managers
         {
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
 
-            PlayerOne = new SummerofXNA.Classes.Base.AnimatedSprite(
-                Game.Content.Load<Texture2D>(@"Images\Character\Playable\run"),
-                new Vector2(50,50), new Point(512, 512), 0, new Point(0,0), new Point(6,1), 0.4);            
+            //PlayerOne = new SummerofXNA.Classes.Base.AnimatedSprite(
+            //    Game.Content.Load<Texture2D>(@"Images\Character\Playable\run"),
+            //    new Vector2(50,50), new Point(512, 512), 0, new Point(0,0), new Point(6,1), 0.4);            
 
             base.LoadContent();
         }
@@ -51,14 +51,14 @@ namespace SummerofXNA.Managers
         //Dispose
         protected override void UnloadContent()
         {
-            PlayerOne.Dispose();
+            //PlayerOne.Dispose();
             base.UnloadContent();
         }
 
         //Update
         public override void Update(GameTime gameTime)
         {
-            PlayerOne.Update(gameTime);
+            //PlayerOne.Update(gameTime);
             
             base.Update(gameTime);
         }
@@ -69,7 +69,7 @@ namespace SummerofXNA.Managers
 
             spriteBatch.Begin();
 
-            PlayerOne.Draw(gameTime, spriteBatch);
+            //PlayerOne.Draw(gameTime, spriteBatch);
 
             spriteBatch.End();
             
