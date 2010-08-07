@@ -87,6 +87,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Images\Character\Misc\skullball.png">
+      <Name>skullball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Images\Character\NPC\" />
     <Folder Include="Images\World\Misc\" />
     <Folder Include="Sound\" />

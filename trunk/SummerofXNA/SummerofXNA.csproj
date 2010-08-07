@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Classes\Base\AnimatedSprite.cs" />
     <Compile Include="Classes\Base\Sprite.cs" />
+    <Compile Include="Classes\Character\Playable\UserControlledAnimatedSprite.cs" />
     <Compile Include="Classes\Character\Playable\UserControlledSprite.cs" />
     <Compile Include="Managers\DeveloperInterfaceManager.cs" />
     <Compile Include="Managers\PlayerManager.cs" />

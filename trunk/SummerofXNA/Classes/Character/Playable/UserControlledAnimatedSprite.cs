@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace SummerofXNA.Classes.Character.Playable
 {
-    class UserControlledSprite : Classes.Base.Sprite
+    class UserControlledAnimatedSprite : Classes.Base.AnimatedSprite
     {
 
         #region Class-level variable
@@ -19,15 +19,16 @@ namespace SummerofXNA.Classes.Character.Playable
         #endregion
 
         //Constructors
-        public UserControlledSprite(Texture2D textureImage, Vector2 position, Point frameSize, int collisionOffset)
-            : base(textureImage, position, frameSize, collisionOffset)
+        public UserControlledAnimatedSprite(Texture2D textureImage, Vector2 position, Point frameSize,
+                      int collisionOffset, Point currentFrame, Point sheetSize)
+            : base(textureImage, position, frameSize, collisionOffset, currentFrame, sheetSize)
         {
             this.speed = defaultSpeed;
         }
 
-        public UserControlledSprite(Texture2D textureImage, Vector2 position, Point frameSize, int collisionOffset,
-            int speed)
-            : base(textureImage, position, frameSize, collisionOffset)
+        public UserControlledAnimatedSprite(Texture2D textureImage, Vector2 position, Point frameSize,
+                      int collisionOffset, Point currentFrame, Point sheetSize, int speed)
+            : base(textureImage, position, frameSize, collisionOffset, currentFrame, sheetSize)
         {
             this.speed = speed;
         }
@@ -69,5 +70,6 @@ namespace SummerofXNA.Classes.Character.Playable
 
             base.Update(gameTime);
         }
+
     }
 }

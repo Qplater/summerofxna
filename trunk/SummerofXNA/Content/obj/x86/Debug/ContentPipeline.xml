@@ -64,6 +64,15 @@
       <Output>D:\SVN\SummerofXNA\bin\x86\Debug\Content\Fonts\DeveloperInterfaceFont.xnb</Output>
       <Time>2010-08-06T17:33:21.9975514+02:00</Time>
     </Item>
+    <Item>
+      <Source>Images\Character\Misc\skullball.png</Source>
+      <Name>Images\Character\Misc\skullball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Character\Misc\skullball.xnb</Output>
+      <Time>2010-08-07T14:52:08.7183262+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

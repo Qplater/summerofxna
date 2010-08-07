@@ -15,7 +15,7 @@ namespace SummerofXNA.Classes.Base
         int timeSinceLastFrame = 0;
         int millisecondsPerFrame;
 
-        protected const int defaultMillisecondsPerFrame = 80;
+        protected const int defaultMillisecondsPerFrame = 16;
 
         protected float scale = 1;
 

@@ -16,19 +16,17 @@ namespace SummerofXNA.Managers
 {
     public class PlayerManager : Microsoft.Xna.Framework.DrawableGameComponent
     {
-        #region Class-level variables
-        
-        //Classes.Base.AnimatedSprite PlayerOne;
+        #region Class-level variables        
 
         SpriteBatch spriteBatch;
+        Classes.Character.Playable.UserControlledAnimatedSprite playerOne;
 
         #endregion
 
         //Constructor
         public PlayerManager(Game game)
             : base(game)
-        {
-        }
+        {}
 
         //Initialize
         public override void Initialize()
@@ -41,9 +39,9 @@ namespace SummerofXNA.Managers
         {
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
 
-            //PlayerOne = new SummerofXNA.Classes.Base.AnimatedSprite(
-            //    Game.Content.Load<Texture2D>(@"Images\Character\Playable\run"),
-            //    new Vector2(50,50), new Point(512, 512), 0, new Point(0,0), new Point(6,1), 0.4);            
+            playerOne = new SummerofXNA.Classes.Character.Playable.UserControlledAnimatedSprite(
+                Game.Content.Load<Texture2D>(@"Images\Character\Misc\skullball"), new Vector2(30,30),
+                new Point(75,75), 10, new Point(0,0), new Point(6,8));
 
             base.LoadContent();
         }
@@ -51,14 +49,15 @@ namespace SummerofXNA.Managers
         //Dispose
         protected override void UnloadContent()
         {
-            //PlayerOne.Dispose();
+            playerOne.Dispose();
+
             base.UnloadContent();
         }
 
         //Update
         public override void Update(GameTime gameTime)
         {
-            //PlayerOne.Update(gameTime);
+            playerOne.Update(gameTime);
             
             base.Update(gameTime);
         }
@@ -69,7 +68,7 @@ namespace SummerofXNA.Managers
 
             spriteBatch.Begin();
 
-            //PlayerOne.Draw(gameTime, spriteBatch);
+            playerOne.Draw(gameTime, spriteBatch);
 
             spriteBatch.End();
             

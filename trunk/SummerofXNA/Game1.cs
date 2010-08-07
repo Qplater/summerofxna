@@ -24,8 +24,8 @@ namespace SummerofXNA
 
         Vector2 uICoord;
 
-        Texture2D backgroundTexture;
-        Texture2D uIBackgroundTexture;
+        //Texture2D backgroundTexture;
+        //Texture2D uIBackgroundTexture;
 
         public Managers.PlayerManager playerManager;
         public Managers.DeveloperInterfaceManager developerInterfaceManager;
@@ -69,8 +69,8 @@ namespace SummerofXNA
         protected override void LoadContent()
         {
 
-            backgroundTexture = Content.Load<Texture2D>(@"Images\Background\groundTest");
-            uIBackgroundTexture = Content.Load<Texture2D>(@"Images\Background\ui_bg2");
+            //backgroundTexture = Content.Load<Texture2D>(@"Images\Background\groundTest");
+            //uIBackgroundTexture = Content.Load<Texture2D>(@"Images\Background\ui_bg2");
             
             spriteBatch = new SpriteBatch(GraphicsDevice);
         }
@@ -78,8 +78,8 @@ namespace SummerofXNA
         //UnloadContent
         protected override void UnloadContent()
         {
-            backgroundTexture.Dispose();
-            uIBackgroundTexture.Dispose();
+            //backgroundTexture.Dispose();
+            //uIBackgroundTexture.Dispose();
         }
 
         //Update
@@ -102,11 +102,11 @@ namespace SummerofXNA
             spriteBatch.Begin();
 
             //Draw the background image
-            spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, Window.ClientBounds.Width,
-                             (int)uICoord.Y), null, Color.White, 0, Vector2.Zero,
-                             SpriteEffects.None, 0);
+            //spriteBatch.Draw(backgroundTexture, new Rectangle(0, 0, Window.ClientBounds.Width,
+            //                 (int)uICoord.Y), null, Color.White, 0, Vector2.Zero,
+            //                 SpriteEffects.None, 0);
 
-            spriteBatch.Draw(uIBackgroundTexture, new Rectangle((int)uICoord.X, (int)uICoord.Y, 800, 100), Color.White);
+            //spriteBatch.Draw(uIBackgroundTexture, new Rectangle((int)uICoord.X, (int)uICoord.Y, 800, 100), Color.White);
 
             spriteBatch.End();
 
