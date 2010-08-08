@@ -12,3 +12,17 @@ D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Background\groundTest.xnb
 D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Background\ui_bg2.xnb
 D:\SVN\SummerofXNA\bin\x86\Debug\Content\Fonts\DeveloperInterfaceFont.xnb
 D:\SVN\SummerofXNA\bin\x86\Debug\Content\Images\Character\Misc\skullball.xnb
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\bin\x86\Debug\Content\Images\Character\Playable\stand.xnb
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\bin\x86\Debug\Content\Images\Character\Playable\run.xnb
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\bin\x86\Debug\Content\Images\Background\ground.xnb
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\bin\x86\Debug\Content\Images\Background\backgroundUnit.xnb
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\bin\x86\Debug\Content\Images\Background\groundTest.xnb
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\bin\x86\Debug\Content\Images\Background\ui_bg2.xnb
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\bin\x86\Debug\Content\Images\Character\Misc\skullball.xnb
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\bin\x86\Debug\Content\Fonts\DeveloperInterfaceFont.xnb
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\bin\x86\Debug\SummerofXNA.exe
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\bin\x86\Debug\SummerofXNA.pdb
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\obj\x86\Debug\ResolveAssemblyReference.cache
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\obj\x86\Debug\SummerofXNA.exe
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\obj\x86\Debug\SummerofXNA.pdb

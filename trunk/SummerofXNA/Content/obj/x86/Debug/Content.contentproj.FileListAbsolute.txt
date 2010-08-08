@@ -1,1 +1,2 @@
 D:\SVN\SummerofXNA\Content\obj\x86\Debug\ResolveAssemblyReference.cache
+d:\Letöltések\Tanulás\Projekt\Kontra\SummerofXNA\Content\obj\x86\Debug\ResolveAssemblyReference.cache
