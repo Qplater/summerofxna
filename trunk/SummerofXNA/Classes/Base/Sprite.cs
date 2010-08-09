@@ -12,14 +12,33 @@ namespace SummerofXNA.Classes.Base
         #region//Class-level variables + accessors
 
         protected Texture2D textureImage;
-        protected Vector2 position;
+        Vector2 positionValue;
+        Vector2 originValue;
         protected Point frameSize;
         int collisionOffset;
 
         public Vector2 Position
         {
-            get { return position; }
-            set { position = value; }
+            set
+            {
+                positionValue = value;
+            }
+            get
+            {
+                return positionValue;
+            }
+        }
+
+        public Vector2 Origin
+        {
+            set
+            {
+                originValue = value;
+            }
+            get
+            {
+                return originValue;
+            }
         }
 
         #endregion
@@ -28,7 +47,7 @@ namespace SummerofXNA.Classes.Base
         public Sprite(Texture2D textureImage, Vector2 position, Point frameSize, int collisionOffset)
         {
             this.textureImage = textureImage;
-            this.position = position;
+            this.positionValue = position;
             this.frameSize = frameSize;
             this.collisionOffset = collisionOffset;
         }
@@ -46,7 +65,8 @@ namespace SummerofXNA.Classes.Base
         //Draw
         public virtual void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(textureImage, position, Color.White);            
+            spriteBatch.Draw(textureImage, positionValue, null, Color.White, 0, originValue, 1,
+                             SpriteEffects.None, 0f);
         }
 
         //Collosion
@@ -55,8 +75,8 @@ namespace SummerofXNA.Classes.Base
             get
             {
                 return new Rectangle(
-                    (int)(position.X + collisionOffset),
-                    (int)(position.Y + collisionOffset),
+                    (int)(positionValue.X + collisionOffset),
+                    (int)(positionValue.Y + collisionOffset),
                     (int)(frameSize.X - (collisionOffset * 2)),
                     (int)(frameSize.Y - (collisionOffset * 2)));
             }

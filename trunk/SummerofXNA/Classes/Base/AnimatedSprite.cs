@@ -91,14 +91,14 @@ namespace SummerofXNA.Classes.Base
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(textureImage,
-                             position,
+                             Position,
                              new Rectangle(currentFrame.X * frameSize.X,
                                            currentFrame.Y * frameSize.Y,
                                            frameSize.X,
                                            frameSize.Y),
                              Color.White,
                              0,
-                             Vector2.Zero,
+                             Origin,
                              scale,
                              SpriteEffects.None,
                              0);

@@ -56,7 +56,7 @@ namespace SummerofXNA.Classes.Character.Playable
         public override void Update(GameTime gameTime)
         {
 
-            position += this.direction;
+            Position += this.direction;
 
             //if (position.X < 0)
             //    position.X = 0;
