@@ -90,6 +90,9 @@
     <Compile Include="Classes\Character\Playable\UserControlledAnimatedSprite.cs" />
     <Compile Include="Classes\Character\Playable\UserControlledSprite.cs" />
     <Compile Include="Classes\DataLayer\XMLHandler.cs" />
+    <Compile Include="Controls\Button.cs" />
+    <Compile Include="Controls\Control.cs" />
+    <Compile Include="Controls\Pane.cs" />
     <Compile Include="Managers\DeveloperInterfaceManager.cs" />
     <Compile Include="Managers\PlayerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
