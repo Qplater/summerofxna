@@ -13,7 +13,7 @@ namespace SummerofXNA.Classes.Character.Playable
 
         #region Class-level variable
 
-        int speed;
+        public int Speed;
         const int defaultSpeed = 3;
 
         #endregion
@@ -22,41 +22,24 @@ namespace SummerofXNA.Classes.Character.Playable
         public UserControlledSprite(Texture2D textureImage, Vector2 position, Point frameSize, int collisionOffset)
             : base(textureImage, position, frameSize, collisionOffset)
         {
-            this.speed = defaultSpeed;
+            this.Speed = defaultSpeed;
         }
 
         public UserControlledSprite(Texture2D textureImage, Vector2 position, Point frameSize, int collisionOffset,
             int speed)
             : base(textureImage, position, frameSize, collisionOffset)
         {
-            this.speed = speed;
+            this.Speed = speed;
         }
 
         //Direction
-        public Vector2 direction
-        {
-            get
-            {
-                Vector2 inputDirection = Vector2.Zero;
-
-                if (Keyboard.GetState().IsKeyDown(Keys.Left))
-                    inputDirection.X -= 1;
-                if (Keyboard.GetState().IsKeyDown(Keys.Right))
-                    inputDirection.X += 1;
-                if (Keyboard.GetState().IsKeyDown(Keys.Up))
-                    inputDirection.Y -= 1;
-                if (Keyboard.GetState().IsKeyDown(Keys.Down))
-                    inputDirection.Y += 1;
-
-                return inputDirection * speed;
-            }
-        }
+        public Vector2 Direction;
 
         //Update
         public override void Update(GameTime gameTime)
         {
 
-            Position += this.direction;
+            Position += this.Direction;
 
             //if (position.X < 0)
             //    position.X = 0;
