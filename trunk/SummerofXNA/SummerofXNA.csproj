@@ -93,11 +93,34 @@
     <Compile Include="Controls\Button.cs" />
     <Compile Include="Controls\Control.cs" />
     <Compile Include="Controls\Pane.cs" />
-    <Compile Include="Managers\DeveloperInterfaceManager.cs" />
-    <Compile Include="Managers\PlayerManager.cs" />
+    <Compile Include="Managers\DeveloperInterfaceManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\GameScreen.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\InputState.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\PlayerManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Managers\ScreenManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Screens\BackgroundScreen.cs" />
+    <Compile Include="Screens\GameplayScreen.cs" />
+    <Compile Include="Screens\LoadingScreen.cs" />
+    <Compile Include="Screens\MainMenuScreen.cs" />
+    <Compile Include="Screens\MenuEntry.cs" />
+    <Compile Include="Screens\MenuScreen.cs" />
+    <Compile Include="Screens\MessageBoxScreen.cs" />
+    <Compile Include="Screens\OptionsMenuScreen.cs" />
+    <Compile Include="Screens\PauseMenuScreen.cs" />
+    <Compile Include="Screens\PlayerIndexEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
