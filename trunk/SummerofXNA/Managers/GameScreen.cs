@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 
 namespace SummerofXNA.Managers
 {
@@ -145,11 +146,10 @@ namespace SummerofXNA.Managers
         public ScreenManager ScreenManager
         {
             get { return screenManager; }
-            internal set { screenManager = value; }
+            set { screenManager = value; }
         }
 
         ScreenManager screenManager;
-
 
         /// <summary>
         /// Gets the index of the player who is currently controlling this screen,

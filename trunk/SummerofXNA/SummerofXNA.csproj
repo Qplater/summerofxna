@@ -60,6 +60,7 @@
       <Private>False</Private>
       <SpecificVersion>True</SpecificVersion>
     </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=3.1.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Game, Version=3.1.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL">
       <Private>False</Private>
       <SpecificVersion>True</SpecificVersion>
@@ -89,7 +90,7 @@
     <Compile Include="Classes\Camera\Camera2D.cs" />
     <Compile Include="Classes\Character\Playable\UserControlledAnimatedSprite.cs" />
     <Compile Include="Classes\Character\Playable\UserControlledSprite.cs" />
-    <Compile Include="Classes\DataLayer\XMLHandler.cs" />
+    <Compile Include="Classes\Misc\ConfigHelper.cs" />
     <Compile Include="Controls\Button.cs" />
     <Compile Include="Controls\Control.cs" />
     <Compile Include="Controls\Pane.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Screens\BackgroundScreen.cs" />
     <Compile Include="Screens\GameplayScreen.cs" />
+    <Compile Include="Screens\KeyConfigBoxScreen.cs" />
     <Compile Include="Screens\LoadingScreen.cs" />
     <Compile Include="Screens\MainMenuScreen.cs" />
     <Compile Include="Screens\MenuEntry.cs" />
@@ -170,8 +172,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ContentPipelineExtension\ContentPipelineExtension.csproj">
+      <Project>{78BCF938-E388-4607-9638-00DD99AC9BD1}</Project>
+      <Name>ContentPipelineExtension</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Classes\Character\NPC\" />
-    <Folder Include="Classes\Misc\" />
     <Folder Include="Classes\World\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

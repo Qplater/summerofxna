@@ -65,7 +65,7 @@ namespace SummerofXNA.Screens
         public override void LoadContent()
         {
             if (content == null)
-                content = new ContentManager(ScreenManager.Game.Services, "Content");
+                content = ScreenManager.Game.Content;
 
             gameFont = content.Load<SpriteFont>("Fonts/DeveloperInterfaceFont");
 

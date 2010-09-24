@@ -1,4 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Content;
+using System.Collections.Generic;
+using ContentPipelineExtension;
+using ContentPipelineExtension.Content;
+using SummerofXNA.Managers;
 
 namespace SummerofXNA.Screens
 {
@@ -11,94 +17,118 @@ namespace SummerofXNA.Screens
     {
         #region Fields
 
-        MenuEntry ungulateMenuEntry;
-        MenuEntry languageMenuEntry;
-        MenuEntry frobnicateMenuEntry;
-        MenuEntry elfMenuEntry;
+        MenuEntry upMenuEntry;
+        MenuEntry downMenuEntry;
+        MenuEntry leftMenuEntry;
+        MenuEntry rightMenuEntry;
+        MenuEntry cameraUpMenuEntry;
+        MenuEntry cameraDownMenuEntry;
+        MenuEntry cameraLeftMenuEntry;
+        MenuEntry cameraRightMenuEntry;
 
-        enum Ungulate
-        {
-            BactrianCamel,
-            Dromedary,
-            Llama,
-        }
+        List<ConfigContent> config;
 
-        static Ungulate currentUngulate = Ungulate.Dromedary;
-
-        static string[] languages = { "C#", "French", "Deoxyribonucleic acid" };
-        static int currentLanguage = 0;
-
-        static bool frobnicate = true;
-
-        static int elf = 23;
+        Dictionary<string, string> Controls;
+        ScreenManager ScreenManager;
 
         #endregion
 
         #region Initialization
 
-
         /// <summary>
         /// Constructor.
         /// </summary>
-        public OptionsMenuScreen()
-            : base("Options")
+        public OptionsMenuScreen(ScreenManager ScreenManager)
+            : base("Beallitasok")
         {
+            Controls = new Dictionary<string, string>();
+            this.ScreenManager = ScreenManager;
+
             // Create our menu entries.
-            ungulateMenuEntry = new MenuEntry(string.Empty);
-            languageMenuEntry = new MenuEntry(string.Empty);
-            frobnicateMenuEntry = new MenuEntry(string.Empty);
-            elfMenuEntry = new MenuEntry(string.Empty);
+            upMenuEntry = new MenuEntry(string.Empty);
+            downMenuEntry = new MenuEntry(string.Empty);
+            leftMenuEntry = new MenuEntry(string.Empty);
+            rightMenuEntry = new MenuEntry(string.Empty);
+            cameraUpMenuEntry = new MenuEntry(string.Empty);
+            cameraDownMenuEntry = new MenuEntry(string.Empty);
+            cameraLeftMenuEntry = new MenuEntry(string.Empty);
+            cameraRightMenuEntry = new MenuEntry(string.Empty);
 
             SetMenuEntryText();
 
-            MenuEntry backMenuEntry = new MenuEntry("Back");
-
+            MenuEntry backMenuEntry = new MenuEntry("Vissza");
+            
             // Hook up menu event handlers.
-            ungulateMenuEntry.Selected += UngulateMenuEntrySelected;
-            languageMenuEntry.Selected += LanguageMenuEntrySelected;
-            frobnicateMenuEntry.Selected += FrobnicateMenuEntrySelected;
-            elfMenuEntry.Selected += ElfMenuEntrySelected;
+            upMenuEntry.Selected += UpMenuEntrySelected;
             backMenuEntry.Selected += OnCancel;
-
+            
             // Add entries to the menu.
-            MenuEntries.Add(ungulateMenuEntry);
-            MenuEntries.Add(languageMenuEntry);
-            MenuEntries.Add(frobnicateMenuEntry);
-            MenuEntries.Add(elfMenuEntry);
+            MenuEntries.Add(upMenuEntry);
+            MenuEntries.Add(downMenuEntry);
+            MenuEntries.Add(leftMenuEntry);
+            MenuEntries.Add(rightMenuEntry);
+            MenuEntries.Add(cameraUpMenuEntry);
+            MenuEntries.Add(cameraDownMenuEntry);
+            MenuEntries.Add(cameraLeftMenuEntry);
+            MenuEntries.Add(cameraRightMenuEntry);
             MenuEntries.Add(backMenuEntry);
+            
         }
 
+        public override void LoadContent()
+        {
+            base.LoadContent();
+        }
 
         /// <summary>
         /// Fills in the latest values for the options screen menu text.
         /// </summary>
         void SetMenuEntryText()
         {
-            ungulateMenuEntry.Text = "Preferred ungulate: " + currentUngulate;
-            languageMenuEntry.Text = "Language: " + languages[currentLanguage];
-            frobnicateMenuEntry.Text = "Frobnicate: " + (frobnicate ? "on" : "off");
-            elfMenuEntry.Text = "elf: " + elf;
+            config = new List<ConfigContent>();
+            config = ScreenManager.Game.Content.Load<List<ConfigContent>>(@"Data\config");
+
+            foreach (ConfigContent cont in config) 
+            {
+                if (cont.ConfigType.Equals("Control")) 
+                {
+                    if (!Controls.ContainsKey(cont.ConfigName))
+                        Controls.Add(cont.ConfigName, cont.ConfigValue);
+                    else
+                        Controls[cont.ConfigName] = cont.ConfigValue;
+                }
+            }
+            
+            upMenuEntry.Text = "Up: " + Controls["Up"];
+            downMenuEntry.Text = "Down: " + Controls["Down"];
+            leftMenuEntry.Text = "Left: " + Controls["Left"];
+            rightMenuEntry.Text = "Right: " + Controls["Right"];
+
+            cameraUpMenuEntry.Text = "CameraUp: " + Controls["CameraUp"];
+            cameraDownMenuEntry.Text = "CameraDown: " + Controls["CameraDown"];
+            cameraLeftMenuEntry.Text = "CameraLeft: " + Controls["CameraLeft"];
+            cameraRightMenuEntry.Text = "CameraRight: " + Controls["CameraRight"];
         }
 
 
         #endregion
-
-        #region Handle Input
+        
+        //#region Handle Input
 
 
         /// <summary>
         /// Event handler for when the Ungulate menu entry is selected.
         /// </summary>
-        void UngulateMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        void UpMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            currentUngulate++;
+            KeyConfigBoxScreen keyconfig = new KeyConfigBoxScreen();
+            keyconfig.ConfigName = "Up";
 
-            if (currentUngulate > Ungulate.Llama)
-                currentUngulate = 0;
+            ScreenManager.AddScreen(keyconfig, base.ControllingPlayer);
 
             SetMenuEntryText();
         }
-
+        /*
 
         /// <summary>
         /// Event handler for when the Language menu entry is selected.
@@ -134,5 +164,6 @@ namespace SummerofXNA.Screens
 
 
         #endregion
+        */
     }
 }

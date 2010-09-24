@@ -18,17 +18,17 @@ namespace SummerofXNA.Screens
         {
             // Create our menu entries.
             MenuEntry playGameMenuEntry = new MenuEntry("Jatek");
-            //MenuEntry optionsMenuEntry = new MenuEntry("Beallitasok");
+            MenuEntry optionsMenuEntry = new MenuEntry("Beallitasok");
             MenuEntry exitMenuEntry = new MenuEntry("Kilepes");
 
             // Hook up menu event handlers.
             playGameMenuEntry.Selected += PlayGameMenuEntrySelected;
-            //optionsMenuEntry.Selected += OptionsMenuEntrySelected;
+            optionsMenuEntry.Selected += OptionsMenuEntrySelected;
             exitMenuEntry.Selected += OnCancel;
 
             // Add entries to the menu.
             MenuEntries.Add(playGameMenuEntry);
-            //MenuEntries.Add(optionsMenuEntry);
+            MenuEntries.Add(optionsMenuEntry);
             MenuEntries.Add(exitMenuEntry);
         }
 
@@ -53,7 +53,7 @@ namespace SummerofXNA.Screens
         /// </summary>
         void OptionsMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            ScreenManager.AddScreen(new OptionsMenuScreen(), e.PlayerIndex);
+            ScreenManager.AddScreen(new OptionsMenuScreen(ScreenManager), e.PlayerIndex);
         }
 
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using SummerofXNA.Managers;
 
@@ -21,7 +22,6 @@ namespace SummerofXNA.Screens
         #endregion
 
         #region Properties
-
 
         /// <summary>
         /// Gets the list of menu entries, so derived classes can add
