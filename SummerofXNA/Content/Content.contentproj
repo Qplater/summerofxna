@@ -87,6 +87,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\config.xml">
+      <Name>config</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ContentPipelineExtension\ContentPipelineExtension.csproj">
+      <Project>{78BCF938-E388-4607-9638-00DD99AC9BD1}</Project>
+      <Name>ContentPipelineExtension</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Images\Character\NPC\" />
     <Folder Include="Images\Character\Playable\" />
     <Folder Include="Sound\" />
