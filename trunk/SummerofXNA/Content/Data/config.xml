@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="System.Collections.Generic.List[ContentPipelineExtension.Content.ConfigContent]">
+    <!-- Here starts the control part of the settings-->
+    <Item>
+      <ConfigName>Up</ConfigName>
+      <ConfigType>Control</ConfigType>
+      <ConfigValue>Up</ConfigValue>
+    </Item>
+    <Item>
+      <ConfigName>Down</ConfigName>
+      <ConfigType>Control</ConfigType>
+      <ConfigValue>Down</ConfigValue>
+    </Item>
+    <Item>
+      <ConfigName>Left</ConfigName>
+      <ConfigType>Control</ConfigType>
+      <ConfigValue>Left</ConfigValue>
+    </Item>
+    <Item>
+      <ConfigName>Right</ConfigName>
+      <ConfigType>Control</ConfigType>
+      <ConfigValue>Right</ConfigValue>
+    </Item>
+    <Item>
+      <ConfigName>CameraUp</ConfigName>
+      <ConfigType>Control</ConfigType>
+      <ConfigValue>W</ConfigValue>
+    </Item>
+    <Item>
+      <ConfigName>CameraDown</ConfigName>
+      <ConfigType>Control</ConfigType>
+      <ConfigValue>S</ConfigValue>
+    </Item>
+    <Item>
+      <ConfigName>CameraLeft</ConfigName>
+      <ConfigType>Control</ConfigType>
+      <ConfigValue>A</ConfigValue>
+    </Item>
+    <Item>
+      <ConfigName>CameraRight</ConfigName>
+      <ConfigType>Control</ConfigType>
+      <ConfigValue>D</ConfigValue>
+    </Item>
+  </Asset>
+</XnaContent>
