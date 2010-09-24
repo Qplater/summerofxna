@@ -90,7 +90,6 @@
     <Compile Include="Classes\Camera\Camera2D.cs" />
     <Compile Include="Classes\Character\Playable\UserControlledAnimatedSprite.cs" />
     <Compile Include="Classes\Character\Playable\UserControlledSprite.cs" />
-    <Compile Include="Classes\Misc\ConfigHelper.cs" />
     <Compile Include="Controls\Button.cs" />
     <Compile Include="Controls\Control.cs" />
     <Compile Include="Controls\Pane.cs" />
@@ -179,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes\Character\NPC\" />
+    <Folder Include="Classes\Misc\" />
     <Folder Include="Classes\World\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
