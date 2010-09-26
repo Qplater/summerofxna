@@ -7,8 +7,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Compiler;
 using Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
 using SummerofXNA.Managers;
-using ContentPipelineExtension;
-using ContentPipelineExtension.Content;
 
 namespace SummerofXNA.Screens
 {
@@ -22,7 +20,7 @@ namespace SummerofXNA.Screens
 
         string message;
         Texture2D gradientTexture;
-        public string ConfigName;
+        public DataHandler.ContentStructures.ConfigContent Modified;
 
         #endregion
 
@@ -78,20 +76,12 @@ namespace SummerofXNA.Screens
 
                 if (state.IsKeyDown(Key) && Key != Keys.Enter) 
                 {
-                    ConfigContent config = new ConfigContent();
-                    config.ConfigName = this.ConfigName;
-                    config.ConfigType = "Control";
-                    config.ConfigValue = key;
+                    Modified.ConfigValue = key;
 
-                    XmlWriterSettings xmlSettings = new XmlWriterSettings();
-                    xmlSettings.Indent = true;
+                    DataHandler.DataHandler dataHandler = new SummerofXNA.DataHandler.DataHandler();
+                    dataHandler.ModifyConfigValue(Modified);
 
-                    //Ez még így nem jó, mert xml-be ment xnb helyett
-                    using (XmlWriter xmlWriter = XmlWriter.Create("Content/Data/config1.xml", xmlSettings))
-                    {
-                        IntermediateSerializer.Serialize(xmlWriter, config, null);
-                    }
-
+                    ScreenManager.SetOptionsIsModified();
                     ExitScreen();
                 }
             }

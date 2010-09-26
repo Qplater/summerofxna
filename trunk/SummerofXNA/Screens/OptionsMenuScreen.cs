@@ -2,8 +2,7 @@
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
-using ContentPipelineExtension;
-using ContentPipelineExtension.Content;
+using SummerofXNA.DataHandler.ContentStructures;
 using SummerofXNA.Managers;
 
 namespace SummerofXNA.Screens
@@ -26,10 +25,16 @@ namespace SummerofXNA.Screens
         MenuEntry cameraLeftMenuEntry;
         MenuEntry cameraRightMenuEntry;
 
+        bool ismodified;
+        public bool IsModified 
+        {
+            get { return ismodified; }
+            set { ismodified = value; }
+        }
+
         List<ConfigContent> config;
 
         Dictionary<string, string> Controls;
-        ScreenManager ScreenManager;
 
         #endregion
 
@@ -43,23 +48,39 @@ namespace SummerofXNA.Screens
         {
             Controls = new Dictionary<string, string>();
             this.ScreenManager = ScreenManager;
+            ismodified = false;
 
             // Create our menu entries.
             upMenuEntry = new MenuEntry(string.Empty);
+            upMenuEntry.IsOptionsEntry = true;
             downMenuEntry = new MenuEntry(string.Empty);
+            downMenuEntry.IsOptionsEntry = true;
             leftMenuEntry = new MenuEntry(string.Empty);
+            leftMenuEntry.IsOptionsEntry = true;
             rightMenuEntry = new MenuEntry(string.Empty);
+            rightMenuEntry.IsOptionsEntry = true;
             cameraUpMenuEntry = new MenuEntry(string.Empty);
+            cameraUpMenuEntry.IsOptionsEntry = true;
             cameraDownMenuEntry = new MenuEntry(string.Empty);
+            cameraDownMenuEntry.IsOptionsEntry = true;
             cameraLeftMenuEntry = new MenuEntry(string.Empty);
+            cameraLeftMenuEntry.IsOptionsEntry = true;
             cameraRightMenuEntry = new MenuEntry(string.Empty);
+            cameraRightMenuEntry.IsOptionsEntry = true;
 
             SetMenuEntryText();
 
             MenuEntry backMenuEntry = new MenuEntry("Vissza");
             
             // Hook up menu event handlers.
-            upMenuEntry.Selected += UpMenuEntrySelected;
+            upMenuEntry.OptionsSelected += UpMenuEntrySelected;
+            downMenuEntry.OptionsSelected += DownMenuEntrySelected;
+            leftMenuEntry.OptionsSelected += LeftMenuEntrySelected;
+            rightMenuEntry.OptionsSelected += RightMenuEntrySelected;
+            cameraUpMenuEntry.OptionsSelected += CameraUpMenuEntrySelected;
+            cameraDownMenuEntry.OptionsSelected += CameraDownMenuEntrySelected;
+            cameraLeftMenuEntry.OptionsSelected += CameraLeftMenuEntrySelected;
+            cameraRightMenuEntry.OptionsSelected += CameraRightMenuEntrySelected;
             backMenuEntry.Selected += OnCancel;
             
             // Add entries to the menu.
@@ -86,7 +107,10 @@ namespace SummerofXNA.Screens
         void SetMenuEntryText()
         {
             config = new List<ConfigContent>();
-            config = ScreenManager.Game.Content.Load<List<ConfigContent>>(@"Data\config");
+            //config = ScreenManager.Game.Content.Load<List<ConfigContent>>(@"Data\config");
+            DataHandler.DataHandler dataHandler = 
+                new DataHandler.DataHandler();
+            config = dataHandler.LoadConfiguration();
 
             foreach (ConfigContent cont in config) 
             {
@@ -100,70 +124,98 @@ namespace SummerofXNA.Screens
             }
             
             upMenuEntry.Text = "Up: " + Controls["Up"];
+            upMenuEntry.Control = config[0];
             downMenuEntry.Text = "Down: " + Controls["Down"];
+            downMenuEntry.Control = config[1];
             leftMenuEntry.Text = "Left: " + Controls["Left"];
+            leftMenuEntry.Control = config[2];
             rightMenuEntry.Text = "Right: " + Controls["Right"];
+            rightMenuEntry.Control = config[3];
 
             cameraUpMenuEntry.Text = "CameraUp: " + Controls["CameraUp"];
+            cameraUpMenuEntry.Control = config[4];
             cameraDownMenuEntry.Text = "CameraDown: " + Controls["CameraDown"];
+            cameraDownMenuEntry.Control = config[5];
             cameraLeftMenuEntry.Text = "CameraLeft: " + Controls["CameraLeft"];
+            cameraLeftMenuEntry.Control = config[6];
             cameraRightMenuEntry.Text = "CameraRight: " + Controls["CameraRight"];
+            cameraRightMenuEntry.Control = config[7];
         }
 
-
+        public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
+        {
+            if (ismodified)
+            {
+                SetMenuEntryText();
+                ismodified = false;
+            }
+            base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
+        }
         #endregion
         
-        //#region Handle Input
-
-
-        /// <summary>
-        /// Event handler for when the Ungulate menu entry is selected.
-        /// </summary>
-        void UpMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        
+        void UpMenuEntrySelected(object sender, ControlEventArgs e)
         {
             KeyConfigBoxScreen keyconfig = new KeyConfigBoxScreen();
-            keyconfig.ConfigName = "Up";
+            keyconfig.Modified = e.Control;
 
             ScreenManager.AddScreen(keyconfig, base.ControllingPlayer);
-
-            SetMenuEntryText();
         }
-        /*
 
-        /// <summary>
-        /// Event handler for when the Language menu entry is selected.
-        /// </summary>
-        void LanguageMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        void DownMenuEntrySelected(object sender, ControlEventArgs e)
         {
-            currentLanguage = (currentLanguage + 1) % languages.Length;
+            KeyConfigBoxScreen keyconfig = new KeyConfigBoxScreen();
+            keyconfig.Modified = e.Control;
 
-            SetMenuEntryText();
+            ScreenManager.AddScreen(keyconfig, base.ControllingPlayer);
         }
 
-
-        /// <summary>
-        /// Event handler for when the Frobnicate menu entry is selected.
-        /// </summary>
-        void FrobnicateMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        void LeftMenuEntrySelected(object sender, ControlEventArgs e)
         {
-            frobnicate = !frobnicate;
+            KeyConfigBoxScreen keyconfig = new KeyConfigBoxScreen();
+            keyconfig.Modified = e.Control;
 
-            SetMenuEntryText();
+            ScreenManager.AddScreen(keyconfig, base.ControllingPlayer);
         }
 
-
-        /// <summary>
-        /// Event handler for when the Elf menu entry is selected.
-        /// </summary>
-        void ElfMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        void RightMenuEntrySelected(object sender, ControlEventArgs e)
         {
-            elf++;
+            KeyConfigBoxScreen keyconfig = new KeyConfigBoxScreen();
+            keyconfig.Modified = e.Control;
 
-            SetMenuEntryText();
+            ScreenManager.AddScreen(keyconfig, base.ControllingPlayer);
         }
 
+        void CameraUpMenuEntrySelected(object sender, ControlEventArgs e)
+        {
+            KeyConfigBoxScreen keyconfig = new KeyConfigBoxScreen();
+            keyconfig.Modified = e.Control;
 
-        #endregion
-        */
+            ScreenManager.AddScreen(keyconfig, base.ControllingPlayer);
+        }
+
+        void CameraDownMenuEntrySelected(object sender, ControlEventArgs e)
+        {
+            KeyConfigBoxScreen keyconfig = new KeyConfigBoxScreen();
+            keyconfig.Modified = e.Control;
+
+            ScreenManager.AddScreen(keyconfig, base.ControllingPlayer);
+        }
+
+        void CameraLeftMenuEntrySelected(object sender, ControlEventArgs e)
+        {
+            KeyConfigBoxScreen keyconfig = new KeyConfigBoxScreen();
+            keyconfig.Modified = e.Control;
+
+            ScreenManager.AddScreen(keyconfig, base.ControllingPlayer);
+        }
+
+        void CameraRightMenuEntrySelected(object sender, ControlEventArgs e)
+        {
+            KeyConfigBoxScreen keyconfig = new KeyConfigBoxScreen();
+            keyconfig.Modified = e.Control;
+
+            ScreenManager.AddScreen(keyconfig, base.ControllingPlayer);
+        }
     }
 }
