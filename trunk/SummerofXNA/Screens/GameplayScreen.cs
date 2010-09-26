@@ -32,6 +32,8 @@ namespace SummerofXNA.Screens
 
         Random random = new Random();
 
+        Dictionary<string, Keys> Controls;
+
         #endregion
 
         #region Class-level variables
@@ -68,6 +70,21 @@ namespace SummerofXNA.Screens
                 content = ScreenManager.Game.Content;
 
             gameFont = content.Load<SpriteFont>("Fonts/DeveloperInterfaceFont");
+
+            List<SummerofXNA.DataHandler.ContentStructures.ConfigContent> config = 
+                new List<SummerofXNA.DataHandler.ContentStructures.ConfigContent>();
+            DataHandler.DataHandler dataHandler =
+                new DataHandler.DataHandler();
+            config = dataHandler.LoadConfiguration();
+            Controls = new Dictionary<string, Keys>();
+
+            foreach (SummerofXNA.DataHandler.ContentStructures.ConfigContent cont in config)
+            {
+                if (cont.ConfigType.Equals("Control"))
+                {
+                    Controls.Add(cont.ConfigName, (Keys)Enum.Parse(typeof(Keys),cont.ConfigValue));
+                }
+            }
 
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
@@ -162,33 +179,33 @@ namespace SummerofXNA.Screens
             {
                 Vector2 inputDirection = Vector2.Zero;
 
-                if (Keyboard.GetState().IsKeyDown(Keys.Left))
+                if (Keyboard.GetState().IsKeyDown(Controls["Left"]))
                     inputDirection.X -= 1;
-                if (Keyboard.GetState().IsKeyDown(Keys.Right))
+                if (Keyboard.GetState().IsKeyDown(Controls["Right"]))
                     inputDirection.X += 1;
-                if (Keyboard.GetState().IsKeyDown(Keys.Up))
+                if (Keyboard.GetState().IsKeyDown(Controls["Up"]))
                     inputDirection.Y -= 1;
-                if (Keyboard.GetState().IsKeyDown(Keys.Down))
+                if (Keyboard.GetState().IsKeyDown(Controls["Down"]))
                     inputDirection.Y += 1;
 
                 playerOne.Direction = inputDirection * playerOne.Speed;
 
-                if (Keyboard.GetState(PlayerIndex.One).IsKeyDown(Keys.A))
+                if (Keyboard.GetState(PlayerIndex.One).IsKeyDown(Controls["CameraLeft"]))
                 {
                     camera.MoveLeft(-3);
                 }
 
-                if (Keyboard.GetState(PlayerIndex.One).IsKeyDown(Keys.D))
+                if (Keyboard.GetState(PlayerIndex.One).IsKeyDown(Controls["CameraRight"]))
                 {
                     camera.MoveRight(3);
                 }
 
-                if (Keyboard.GetState(PlayerIndex.One).IsKeyDown(Keys.W))
+                if (Keyboard.GetState(PlayerIndex.One).IsKeyDown(Controls["CameraUp"]))
                 {
                     camera.MoveUp(3);
                 }
 
-                if (Keyboard.GetState(PlayerIndex.One).IsKeyDown(Keys.S))
+                if (Keyboard.GetState(PlayerIndex.One).IsKeyDown(Controls["CameraDown"]))
                 {
                     camera.MoveDown(-3);
                 }

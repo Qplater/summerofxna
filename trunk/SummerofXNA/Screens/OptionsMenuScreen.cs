@@ -107,7 +107,6 @@ namespace SummerofXNA.Screens
         void SetMenuEntryText()
         {
             config = new List<ConfigContent>();
-            //config = ScreenManager.Game.Content.Load<List<ConfigContent>>(@"Data\config");
             DataHandler.DataHandler dataHandler = 
                 new DataHandler.DataHandler();
             config = dataHandler.LoadConfiguration();

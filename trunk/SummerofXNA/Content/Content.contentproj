@@ -95,6 +95,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\language.xml">
+      <Name>language</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Images\Character\NPC\" />
     <Folder Include="Images\Character\Playable\" />
     <Folder Include="Sound\" />

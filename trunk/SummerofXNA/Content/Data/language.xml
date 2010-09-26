@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Language>
+  <Expression id="MainMenu_NewGame">
+    <Hungarian>Új játék</Hungarian>
+    <English>New Game</English>
+  </Expression>
+  <Expression id="MainMenu_Options">
+    <Hungarian>Beállítások</Hungarian>
+    <English>Options</English>
+  </Expression>
+  <Expression id="MainMenu_Exit">
+    <Hungarian>Kilépés</Hungarian>
+    <English>Exit</English>
+  </Expression>
+  <Expression id="Options_Up">
+    <Hungarian>Fel</Hungarian>
+    <English>Up</English>
+  </Expression>
+  <Expression id="Options_Down">
+    <Hungarian>Le</Hungarian>
+    <English>Down</English>
+  </Expression>
+  <Expression id="Options_Left">
+    <Hungarian>Balra</Hungarian>
+    <English>Left</English>
+  </Expression>
+  <Expression id="Options_Right">
+    <Hungarian>Right</Hungarian>
+    <English>Jobbra</English>
+  </Expression>
+  <Expression id="Options_CameraUp">
+    <Hungarian>Kamera fel</Hungarian>
+    <English>Camera Up</English>
+  </Expression>
+  <Expression id="Options_CameraDown">
+    <Hungarian>Kamera le</Hungarian>
+    <English>Camera Down</English>
+  </Expression>
+  <Expression id="Options_CameraLeft">
+    <Hungarian>Kamera balra</Hungarian>
+    <English>Camera Left</English>
+  </Expression>
+  <Expression id="Options_CameraRight">
+    <Hungarian>Kamera jobbra</Hungarian>
+    <English>Camera Right</English>
+  </Expression>
+</Language>
