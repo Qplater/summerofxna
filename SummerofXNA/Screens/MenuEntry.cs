@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SummerofXNA.Managers;
+using SummerofXNA.DataHandler.ContentStructures;
 
 namespace SummerofXNA.Screens
 {
@@ -27,6 +28,9 @@ namespace SummerofXNA.Screens
         /// The entries transition out of the selection effect when they are deselected.
         /// </remarks>
         float selectionFade;
+        bool isoptions;
+        ConfigContent control;
+        
 
         #endregion
 
@@ -42,6 +46,17 @@ namespace SummerofXNA.Screens
             set { text = value; }
         }
 
+        public bool IsOptionsEntry 
+        {
+            get { return isoptions; }
+            set { isoptions = value; }
+        }
+
+        public ConfigContent Control 
+        {
+            get { return control; }
+            set { control = value; }
+        }
 
         #endregion
 
@@ -52,6 +67,7 @@ namespace SummerofXNA.Screens
         /// Event raised when the menu entry is selected.
         /// </summary>
         public event EventHandler<PlayerIndexEventArgs> Selected;
+        public event EventHandler<ControlEventArgs> OptionsSelected;
 
 
         /// <summary>
@@ -59,8 +75,16 @@ namespace SummerofXNA.Screens
         /// </summary>
         protected internal virtual void OnSelectEntry(PlayerIndex playerIndex)
         {
-            if (Selected != null)
-                Selected(this, new PlayerIndexEventArgs(playerIndex));
+            if (!isoptions)
+            {
+                if (Selected != null)
+                    Selected(this, new PlayerIndexEventArgs(playerIndex));
+            }
+            else
+            {
+                if (OptionsSelected != null)
+                    OptionsSelected(this, new ControlEventArgs(control));
+            }
         }
 
 
@@ -75,6 +99,7 @@ namespace SummerofXNA.Screens
         public MenuEntry(string text)
         {
             this.text = text;
+            isoptions = false;
         }
 
 

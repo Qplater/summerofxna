@@ -285,6 +285,25 @@ namespace SummerofXNA.Managers
             spriteBatch.End();
         }
 
+        public void SetOptionsIsModified() 
+        {
+            foreach (GameScreen gs in screens) 
+            {
+                if(gs.GetType().Equals(typeof(OptionsMenuScreen)))
+                {
+                    OptionsMenuScreen opt = (OptionsMenuScreen)gs;
+                    opt.IsModified = true;
+                }
+            }
+            foreach (GameScreen gs in screensToUpdate)
+            {
+                if (gs.GetType().Equals(typeof(OptionsMenuScreen)))
+                {
+                    OptionsMenuScreen opt = (OptionsMenuScreen)gs;
+                    opt.IsModified = true;
+                }
+            }
+        }
 
         #endregion
     }
